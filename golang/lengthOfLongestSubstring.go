@@ -35,14 +35,14 @@ func lengthOfLongestSubstring(s string) int {
 	num, ans := 0, 0
 	for k, v := range s {
 		if _, ok := smap[string(v)]; ok {
-			k = Max(ans, num)
+			num = Max(smap[string(v)], num)
 		}
-		ans = Max(smap[string(v)], num)
+		ans = Max(ans, k-num+1)
 		smap[string(v)] = k + 1
 	}
 	return ans
 }
 
 func main() {
-	fmt.Println(lengthOfLongestSubstring("liubaobao"))
+	fmt.Println(lengthOfLongestSubstring("bbbc"))
 }
