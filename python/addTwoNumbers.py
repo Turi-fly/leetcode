@@ -38,7 +38,7 @@ class Solution:
                 l2 = l2.next
             curr.next = ListNode(val % 10)
             curr = curr.next
-            carry = val / 10
+            carry = int(val / 10)
         if carry > 0:
             curr.next = ListNode(carry)
         return head.next
